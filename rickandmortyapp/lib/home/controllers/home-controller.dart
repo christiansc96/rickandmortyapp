@@ -12,7 +12,7 @@ class HomeController {
 
     final bool validateStatusCode = response.statusCode == 200;
     if (validateStatusCode) {
-      final dataFromAPI = jsonDecode(response.body);
+      final Map dataFromAPI = jsonDecode(response.body);
       final List<dynamic> charactersResults = dataFromAPI["results"];
 
       characters = charactersResults

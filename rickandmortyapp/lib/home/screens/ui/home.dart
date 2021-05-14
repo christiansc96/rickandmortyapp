@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rickandmortyapp/home/controllers/home-controller.dart';
 import 'package:rickandmortyapp/home/models/character.dart';
 import 'package:rickandmortyapp/home/screens/widgets/characters-card.dart';
+import 'package:rickandmortyapp/utils/widgets/drawer.dart';
 
 class MyHome extends StatelessWidget {
   const MyHome({Key key}) : super(key: key);
@@ -12,6 +13,7 @@ class MyHome extends StatelessWidget {
       appBar: AppBar(
         title: Text("Rick & Morty APP"),
       ),
+      drawer: DrawerApp(),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -52,7 +54,8 @@ class MyHome extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemCount: characters.length,
-        itemBuilder: (context, index) =>
-            CharacterCard(character: characters[index]));
+        itemBuilder: (context, index) {
+          return CharacterCard(character: characters[index]);
+        });
   }
 }
